@@ -64,7 +64,6 @@ public class NoteActivity extends AppCompatActivity {
 
         Log.d(TAG,"onCreate");
     }
-
     private void saveOriginalNoteValues() {
         if (mIsNewNote)
             return;
@@ -73,7 +72,6 @@ public class NoteActivity extends AppCompatActivity {
         mViewModel.mOriginalTextNoteText = mNote.getText();
 
     }
-
     private void displayNote(Spinner spinnerCourses, EditText textNoteTitle, EditText textNoteText) {
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
         int courseIndex = courses.indexOf(mNote.getCourse());
@@ -82,7 +80,6 @@ public class NoteActivity extends AppCompatActivity {
         textNoteTitle.setText(mNote.getTitle());
         textNoteText.setText(mNote.getText());
     }
-
     private void readDisplayStateValues() {
         Intent intent = getIntent();
        mNoteposition = intent.getIntExtra(NOTE_POSITION, POSITION_NOT_SET);
@@ -93,20 +90,17 @@ public class NoteActivity extends AppCompatActivity {
         Log.i(TAG, "mNotePosition : "+ mNoteposition);
             mNote = DataManager.getInstance().getNotes().get(mNoteposition);
     }
-
     private void createNewNote() {
         DataManager dm = DataManager.getInstance();
         mNoteposition = dm.createNewNote();
 //        mNote = dm.getNotes().get(mNoteposition);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_note, menu);
         return true;
     }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -140,7 +134,6 @@ public class NoteActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         if (outState !=null)
             mViewModel.saveState(outState);
-
     }
 
     @Override
@@ -156,9 +149,30 @@ public class NoteActivity extends AppCompatActivity {
         }else if (id==R.id.action_cancel){
             mIsCancelling = true;
             finish();
+        }else if(id==R.id.action_next){
+            moveNext();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_next);
+        int lastNoteIndex = DataManager.getInstance().getNotes().size()-1;
+        item.setEnabled(mNoteposition<lastNoteIndex);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void moveNext() {
+        saveNote();
+
+        ++mNoteposition;
+        mNote = DataManager.getInstance().getNotes().get(mNoteposition);
+
+        saveOriginalNoteValues();
+        displayNote(mSpinnerCourses,mTextNoteTitle,mTextNoteText);
+        invalidateOptionsMenu();
     }
 
     private void sendEmail() {

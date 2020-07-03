@@ -9,7 +9,7 @@
 
     <Spinner
         android:id="@+id/spinner_courses"
-        android:layout_width="330dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"

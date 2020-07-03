@@ -14,4 +14,21 @@
     <string name="title_activity_note_list">NoteListActivity</string>
     <string name="title_activity_note">EDIT NOTE</string>
     <string name="send_as_email">send_as_email</string>
+    <string name="textview">TextView</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="notes">notes</string>
+    <string name="courses">courses</string>
+    <string name="share">Share</string>
+    <string name="send">send</string>
+
 </resources>

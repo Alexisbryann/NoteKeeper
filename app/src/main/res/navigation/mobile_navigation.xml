@@ -22,4 +22,14 @@
         android:name="com.example.notekeeper.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/noteListActivity"
+        android:name="com.example.notekeeper.NoteListActivity"
+        android:label="activity_note_list"
+        tools:layout="@layout/activity_note_list" />
+    <activity
+        android:id="@+id/noteActivity"
+        android:name="com.example.notekeeper.NoteActivity"
+        android:label="activity_note"
+        tools:layout="@layout/activity_note" />
 </navigation>

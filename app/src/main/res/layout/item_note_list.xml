@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/textview"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/fontColor"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -38,6 +39,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="@+id/text_course"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/text_course"
                 app:layout_constraintTop_toBottomOf="@+id/text_course" />
 
